@@ -16,7 +16,7 @@ public class MaxValueOfTheLoot {
             wt[i] = sc.nextInt();
         }
         double maxValue = getMaxValue(wt,val,W);
-        System.out.println(maxValue);
+        System.out.printf("%.4f",maxValue);
     }
 
     private static double getMaxValue(int[] wt, int[] val, int W) {
