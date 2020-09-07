@@ -19,7 +19,7 @@ public class MaximumSalary {
         a.sort((X, Y) -> {
             String XY = X + Y;
             String YX = Y + X;
-            return (XY.compareTo(YX) > 0) ? -1 : 1;
+            return Integer.compare(0, XY.compareTo(YX));
         });
         for (String s : a) {
             System.out.print(s);
