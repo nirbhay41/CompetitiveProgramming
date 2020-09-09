@@ -49,7 +49,7 @@ public class Array {
 
         int l = 0, h = length - 1, mid;
         while (l <= h) {
-            mid = (l + h) / 2;
+            mid = l + (h-l)/2;
             if (arr[mid] == x) return mid;
             else if (x < arr[mid]) h = mid - 1;
             else if (x > arr[mid]) l = mid + 1;
@@ -101,7 +101,7 @@ public class Array {
         return true;
     }
 
-    public void InsertSort(int x) {
+    public void SortedInsertion(int x) {
         int i;
         if (length == size) return;
         for (i = length - 1; i >= 0 && arr[i] > x; i--) {
