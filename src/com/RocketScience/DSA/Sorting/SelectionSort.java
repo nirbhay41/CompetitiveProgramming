@@ -1,8 +1,11 @@
 package com.RocketScience.DSA.Sorting;
 
+/*
+Time Complexity is O(n^2)
+ */
 public class SelectionSort {
     public static void sort(int[] a){
-        SelectionSort.selectionSort(a);
+        selectionSort(a);
     }
 
     private static void selectionSort(int[] a) {

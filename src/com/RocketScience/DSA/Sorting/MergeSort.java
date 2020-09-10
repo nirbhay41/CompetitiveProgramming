@@ -8,7 +8,7 @@ It works on the principle of divide and conquer
 public class MergeSort {
 
     public static void sort(int[] a){
-       int l = 0,h = a.length-1;
+       final int l = 0,h = a.length-1;
        mergeSort(a,l,h);
     }
 

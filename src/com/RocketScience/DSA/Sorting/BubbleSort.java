@@ -8,10 +8,10 @@ So we can use this property and can get n largest element by just running n pass
  */
 public class BubbleSort{
     public static void sort(int[] a){
-        BubbleSort.bubbleSort(a);
+        bubbleSort(a);
     }
     private static void bubbleSort(int[] a){
-        int n = a.length;
+        final int n = a.length;
         int temp;
         boolean flag;
         for(int i = 0;i<n-1;i++){ //for n-1 passes

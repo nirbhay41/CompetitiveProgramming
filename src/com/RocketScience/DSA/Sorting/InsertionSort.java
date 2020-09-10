@@ -5,10 +5,10 @@ It is best suited for linked list because we don't have to do shifting of elemen
  */
 public class InsertionSort {
     public static void sort(int[] a){
-        InsertionSort.insertionSort(a);
+        insertionSort(a);
     }
     private static void insertionSort(int[] a){
-        int n = a.length;
+        final int n = a.length;
         for(int i = 1;i<n;i++){ //for passes
             int j = i-1;
             int x = a[i];
