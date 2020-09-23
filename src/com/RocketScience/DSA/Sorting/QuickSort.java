@@ -13,10 +13,11 @@ public class QuickSort {
 
     private static void quickSort(int[] a,int l,int h){
         if(l >= h) return;
+
         int splitPoint;
-        splitPoint = partition(a,l,h);
-        quickSort(a,l,splitPoint);
-        quickSort(a,splitPoint+1,h);
+        splitPoint = partition(a, l, h);
+        quickSort(a, l, splitPoint);
+        quickSort(a, splitPoint + 1, h);
     }
 
     /*private static int randomPivot(int[] a,int l,int h){
