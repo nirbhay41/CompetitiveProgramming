@@ -1,7 +1,5 @@
 package com.RocketScience.DSA.LinkedList;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Arrays;
 
 public class LinkedList{
@@ -12,7 +10,7 @@ public class LinkedList{
     public LinkedList(int data){
         head = new Node(data);
     }
-    public void create(int @NotNull [] a){
+    public void create(int[] a){
         Arrays.stream(a).forEach(this::append);
     }
     public void append(int data){
@@ -157,7 +155,7 @@ public class LinkedList{
     }
     public static void merge(LinkedList list1,LinkedList list2){
         Node last,first = list1.head,second = list2.head;
-        if(first.data < list2.head.data){
+        if(first.data < second.data){
             last = first;
             first = first.next;
         }else{
