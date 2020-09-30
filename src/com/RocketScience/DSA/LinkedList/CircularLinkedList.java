@@ -13,10 +13,10 @@ public class CircularLinkedList {
     public static void main(String[] args) {
         create(new int[]{1,2,34,5,63});
         //display(Head);
-        insert(0,100);
+        insert(5,100);
         display(Head);
-        delete(Head,1);
-        display(Head);
+//        delete(Head,1);
+//        display(Head);
     }
     public static void create(int[] a){
         CircularNode t,last;
@@ -48,11 +48,11 @@ public class CircularLinkedList {
         flag = false;
     }*/
     public static void insert(int pos,int data){
-        if(pos <= 0 || pos > length(Head))
+        if(pos < 0 || pos > length(Head))
             return;
         CircularNode temp,ptr;
         temp = new CircularNode(data);
-        if(pos == 1){
+        if(pos == 0){
             if(Head == null){
                 Head = temp;
                 Head.next = Head;
