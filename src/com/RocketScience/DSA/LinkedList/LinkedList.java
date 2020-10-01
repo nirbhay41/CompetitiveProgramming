@@ -226,4 +226,55 @@ public class LinkedList{
         }
         return prev;
     }
+    public Node oddEvenList(){ //Medium LeetCode Problem
+        if (head == null) return null;
+        Node odd = head, even = head.next, evenHead = even;
+        while (even != null && even.next != null) {
+            odd.next = even.next;
+            odd = odd.next;
+            even.next = odd.next;
+            even = even.next;
+        }
+        odd.next = evenHead;
+        return head;
+
+        //My Solution
+/*        if(head == null){
+            return null;
+        }
+        // For ODD
+        ListNode odd = head,ptr1 = odd;
+        head = head.next;
+        odd.next = null;
+
+        //FOR EVEN
+        ListNode even = head,ptr2 = even;
+        if(head != null)
+            head = head.next;
+        else return odd;
+        even.next = null;
+        byte flag = 0;
+
+        while(head != null){
+            if(flag == 0){
+                ptr1.next = head;
+                head = head.next;
+                ptr1 = ptr1.next;
+                ptr1.next = null;
+                flag = 1;
+            }else{
+                ptr2.next = head;
+                head = head.next;
+                ptr2 = ptr2.next;
+                ptr2.next = null;
+                flag = 0;
+            }
+        }
+        ptr1 = odd;
+        while(ptr1.next != null){
+            ptr1 = ptr1.next;
+        }
+        ptr1.next = even;
+        return odd;*/
+    }
 }
