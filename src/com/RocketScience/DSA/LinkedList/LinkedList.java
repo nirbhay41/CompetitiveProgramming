@@ -1,6 +1,6 @@
 package com.RocketScience.DSA.LinkedList;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class LinkedList{
     private Node head;
@@ -238,7 +238,7 @@ public class LinkedList{
         odd.next = evenHead;
         return head;
 
-        //My Solution
+        //My Solution -- Working
 /*        if(head == null){
             return null;
         }
@@ -276,5 +276,69 @@ public class LinkedList{
         }
         ptr1.next = even;
         return odd;*/
+    }
+    public int numComponents(int[] G) { //Medium Leetcode Problem
+        Set<Integer> Gset = new HashSet<>();
+        for (int x: G) Gset.add(x);
+
+        Node cur = head;
+        int ans = 0;
+
+        while (cur != null) {
+            if (Gset.contains(cur.data) &&
+                    (cur.next == null || !Gset.contains(cur.next.data)))
+                ans++;
+            cur = cur.next;
+        }
+        return ans;
+
+        /*My Solution -- Not Working
+        if(head == null){
+            return 0;
+        }
+        Node ptr1 = head,ptr2;
+        if(head.next != null){
+            ptr2 = head.next;
+        }else return 1;
+        int link = 0;
+
+        while (ptr2 != null){
+            Node finalPtr1 = ptr1;
+            Node finalPtr2 = ptr2;
+            if(Arrays.stream(G).anyMatch(x -> x == finalPtr1.data) && Arrays.stream(G).anyMatch(x -> x == finalPtr2.data)){
+                link++;
+            }
+            ptr1 = ptr1.next;
+            ptr2 = ptr2.next;
+        }
+        if(ptr1 != null)
+            link++;
+        return link;*/
+    }
+    /*
+    Input: [2,7,4,3,5]
+    Output: [5,5,0]
+     */
+    public int[] nextLargerNodes() { // Medium LeetCode Problem --- Use Stack in this problem
+        List<Integer> res = new ArrayList<>();
+        Node parent = head,ptr;
+
+        if(head.next == null){
+            res.add(0);
+            return res.stream().mapToInt(i -> i).toArray();
+        }else ptr = head.next;
+
+        while (parent != null){
+            while(ptr != null && ptr.data < parent.data){
+                ptr = ptr.next;
+            }
+            if(ptr == null){
+                res.add(0);
+            }else res.add(ptr.data);
+            parent = parent.next;
+            if(parent != null)
+                ptr = parent.next;
+        }
+        return res.stream().mapToInt(x -> x).toArray();
     }
 }
