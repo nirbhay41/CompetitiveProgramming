@@ -15,9 +15,8 @@ public class DoublyLinkedList {
     public static DoublyNode Head = null;
     public static void main(String[] args) {
         create(new int[]{1,2,3,4,5,6});
-        insert(Head,6,1000);
         display(Head);
-        delete(Head,7);
+        reverse(Head);
         display(Head);
     }
     public static void create(int[] a){
@@ -121,5 +120,17 @@ public class DoublyLinkedList {
             temp.next.prev = temp;
         }
         return head;
+    }
+    public static void reverse(DoublyNode head){
+        DoublyNode temp;
+        while(head != null){
+            temp = head.next;
+            head.next = head.prev;
+            head.prev = temp;
+            head = head.prev;
+            if(head != null && head.next == null){
+                Head = head;
+            }
+        }
     }
 }

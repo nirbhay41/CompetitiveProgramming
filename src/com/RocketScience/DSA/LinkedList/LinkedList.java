@@ -329,7 +329,7 @@ public class LinkedList{
         }else ptr = head.next;
 
         while (parent != null){
-            while(ptr != null && ptr.data < parent.data){
+            while(ptr != null && ptr.data <= parent.data){
                 ptr = ptr.next;
             }
             if(ptr == null){
@@ -341,4 +341,40 @@ public class LinkedList{
         }
         return res.stream().mapToInt(x -> x).toArray();
     }
+    public Node middle(){ // We can do these with stack also
+        Node slow,fast;
+        slow=fast=head;
+
+        while(fast != null){
+            fast = fast.next;
+            if(fast != null)
+                fast = fast.next;
+            if(fast != null)
+                slow = slow.next;
+        }
+        return slow;
+    }
+    /*
+    We can find intersection of 2 linkedlist using stack also
+
+    Node p = first
+    while(p != null)
+    {
+       stack1.push(p)
+       p = p.next;
+    }
+
+    p = first
+    while(p != null)
+    {
+       stack2.push(p)
+       p = p.next;
+    }
+
+    while(stack1.peek() == stack2.peek()){
+       p = stack1.pop();
+       stack2.pop();
+    }
+    return p;
+     */
 }
