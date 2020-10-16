@@ -1,4 +1,4 @@
-package com.RocketScience.DSA.strings;
+package com.RocketScience.DSA.Strings;
 
 /*
 This is done with the help of BitWise Operations(We can't count how many duplicates)

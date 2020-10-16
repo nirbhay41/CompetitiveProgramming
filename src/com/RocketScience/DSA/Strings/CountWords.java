@@ -1,4 +1,4 @@
-package com.RocketScience.DSA.strings;
+package com.RocketScience.DSA.Strings;
 
 public class CountWords {
     public static void main(String[] args) {
