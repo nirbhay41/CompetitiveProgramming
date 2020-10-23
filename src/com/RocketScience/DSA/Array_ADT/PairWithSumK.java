@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class PairWithSumK {
     public static void main(String[] args) {
-        sorted_pairWithSum(new int[]{6,3,8,10,16,7,5,2,9,14}, 10);
+        UsingTwoPointers(new int[]{6,3,8,10,16,7,5,2,9,14}, 10);
     }
     private static void naive_pairWithSum(int[] a,int k){ // O(n^2) Solution
         for(int i = 0;i<a.length-1;i++){
@@ -15,22 +15,22 @@ public class PairWithSumK {
             }
         }
     }
-    private static void fast_pairWithSum(int[] a,int k){
+    private static void UsingHashing(int[] a,int k){ // if array is not sorted
         int max = Arrays.stream(a).max().getAsInt();
         int[] H = new int[max+1];
         Arrays.fill(H,0 );
-        for(int i = 0;i<a.length;i++){
-            if(a[i] > k){
-                H[a[i]]++;
+        for (int j : a) {
+            if (j > k) {
+                H[j]++;
                 continue;
             }
-            if(H[k-a[i]] != 0){
-                System.out.printf("%d + %d = %d\n",a[i],k-a[i],k);
+            if (H[k - j] != 0) {
+                System.out.printf("%d + %d = %d\n", j, k - j, k);
             }
-            H[a[i]]++;
+            H[j]++;
         }
     }
-    private static void sorted_pairWithSum(int[] a,int k){
+    private static void UsingTwoPointers(int[] a,int k){ // if array is sorted
         int i = 0,j = a.length-1;
         Arrays.sort(a);
         while(i < j){

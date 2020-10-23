@@ -180,7 +180,7 @@ public class LinkedList{
             last.next = first;
         }else last.next = second;
     }
-    public void isLOOP(){   //Using Floyd’s Cycle-Finding Algorithm
+    public void isLOOP(){   //Using Floyd’s Cycle Detection Algorithm
         Node fast = head,slow = head;
         boolean flag = false;
         while (fast != null && slow != null && fast.next != null) {
@@ -196,6 +196,26 @@ public class LinkedList{
             System.out.println("LOOP FOUND!!!");
         else
             System.out.println("LOOP NOT FOUND!!!");
+    }
+    public void removeLoop(){ // remove Loop if present
+        Node slow = head,fast = head,prev=null;
+
+        while(fast != null){
+            fast = fast.next;
+            fast = fast !=null ? fast.next : null;
+            prev = slow;
+            slow = slow.next;
+
+            if(fast == slow)
+            {
+                slow = head;
+                while(slow.next != fast.next) {
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+                fast.next = null;
+            }
+        }
     }
     public boolean isPalindrome(){
         Node fast = head,slow = head;
@@ -217,9 +237,9 @@ public class LinkedList{
         return true;
     }
     private Node reverseP(Node head){
-        Node prev = null;
+        Node prev = null,next;
         while(head != null){
-            Node next = head.next;
+            next = head.next;
             head.next = prev;
             prev = head;
             head = next;
@@ -347,8 +367,7 @@ public class LinkedList{
 
         while(fast != null){
             fast = fast.next;
-            if(fast != null)
-                fast = fast.next;
+            fast = fast != null ? fast.next : null;
             if(fast != null)
                 slow = slow.next;
         }
