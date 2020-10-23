@@ -1,2 +1,2 @@
-# CompetitiveProgramming
-Tricks and Programs for Competitive Programming in JAVA
+# Data Structures and Algorithms in JAVA
+Tricks and Programs for Data Structures and Algorithms in JAVA
