@@ -2,7 +2,7 @@ package com.RocketScience.DSA.BinarySearch;
 
 public class SortedArrayRotated {
     public static void main(String[] args) {
-        System.out.println(minElement(new int[]{11,12,15,18,2,5,6,8}));
+        System.out.println(minElement(new int[]{4,5,6,7,0,1,2}));
     }
     public static int minElement(int[] a){
         int N = a.length;
@@ -11,20 +11,12 @@ public class SortedArrayRotated {
         int low = 0,high = N-1,mid,prev,next;
 
         while (low <= high){
-            if(a[low] <= a[high])
-                return low;
-
+            if(a[low] <= a[high]) return a[low];
             mid = low + (high - low)/2;
-            next = (mid + 1) % N;
-            prev = (mid + N - 1) % N;
 
-            if(a[mid] <= a[prev] && a[mid] <= a[next]) // to check if mid is a min element
-                return mid;
-            if(a[low] <= a[mid]) // if this is sorted move low to other half
-                low = mid+1;
-            else if(a[mid] <= a[high]) // if this is sorted move high to other half
-                high = mid - 1;
+            if(a[mid] >= a[high]) low = mid+1;
+            else high = mid;
         }
-        return -1;
+        return a[low];
     }
 }

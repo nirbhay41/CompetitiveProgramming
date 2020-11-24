@@ -2,7 +2,7 @@ package com.RocketScience.DSA.BinarySearch;
 
 public class Find_an_Element_in_a_RotatedSortedArray {
     public static void main(String[] args) {
-        System.out.println(find(new int[]{11, 12, 15, 18, 2, 5, 6, 8}, 15));
+        System.out.println(find(new int[]{3,1}, 0));
     }
     public static int find(int[] a,int x){
         int N = a.length;
