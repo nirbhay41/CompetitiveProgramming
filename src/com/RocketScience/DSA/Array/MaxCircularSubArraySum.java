@@ -1,5 +1,6 @@
 package com.RocketScience.DSA.Array;
 
+//HARD PROBLEM
 public class MaxCircularSubArraySum {
     public static void main(String[] args) {
         System.out.println(maxCircularSum2(new int[]{1, 2, -3, 4, -5, 6}));

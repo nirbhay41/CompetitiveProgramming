@@ -2,7 +2,7 @@ package com.RocketScience.DSA.Array;
 
 public class WaveSort {
     public static void main(String[] args) {
-        int[] a = {1,3,4,7,5,6,2};
+        int[] a = {1,2,3,4,5,6};
         convertToWave(a,a.length);
         for (int i : a) {
             System.out.print(i+" ");
