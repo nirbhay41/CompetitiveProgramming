@@ -2,7 +2,7 @@ package com.RocketScience.DSA.Mathematics;
 
 public class LCMANDHCF {
     public static void main(String[] args) {
-        System.out.println(lcm(2,5));
+        System.out.println(gcd(4,6));
     }
     public static int lcm(int a ,int b){
         return (a*b)/gcd(a,b);
