@@ -1,4 +1,4 @@
-package com.RocketScience.DSA.Array;
+package com.RocketScience.DSA.BitMagic;
 
 //https://graphics.stanford.edu/~seander/bithacks.html
 public class CountSetBits {
@@ -8,7 +8,7 @@ public class CountSetBits {
         System.out.println(LookupTable.countSetBits(n));
     }
 
-    //Method - I : Simple Approach O(logn)
+    //Method - I : Simple Approach O(total no of bits)
     public static int Count(int n){
         int count = 0;
 
@@ -19,7 +19,7 @@ public class CountSetBits {
         return count;
     }
 
-    //Method - II : Brian Kernighan’s Algorithm O(logn)
+    //Method - II : Brian Kernighan’s Algorithm O(set bits)
     public static int BrianAlgo(int n){
         int count = 0;
         while (n > 0){
