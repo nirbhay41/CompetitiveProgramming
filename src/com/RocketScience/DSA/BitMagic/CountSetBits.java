@@ -3,16 +3,14 @@ package com.RocketScience.DSA.BitMagic;
 //https://graphics.stanford.edu/~seander/bithacks.html
 public class CountSetBits {
     public static void main(String[] args) {
-        LookupTable.initialize();
-        int n = 7;
-        System.out.println(LookupTable.countSetBits(n));
+        System.out.println(BrianAlgo(-3));
     }
 
     //Method - I : Simple Approach O(total no of bits)
     public static int Count(int n){
         int count = 0;
 
-        while(n > 0){
+        while(n != 0){
             count += n&1;
             n >>= 1;
         }
@@ -22,7 +20,7 @@ public class CountSetBits {
     //Method - II : Brian Kernighan’s Algorithm O(set bits)
     public static int BrianAlgo(int n){
         int count = 0;
-        while (n > 0){
+        while (n != 0){ // n > 0 will not work here because n can be in negative also
             n &= (n-1);
             count++;
         }
