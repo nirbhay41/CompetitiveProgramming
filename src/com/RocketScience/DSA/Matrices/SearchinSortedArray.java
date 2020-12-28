@@ -1,8 +1,8 @@
-package com.RocketScience.DSA.BinarySearch;
+package com.RocketScience.DSA.Matrices;
 
 import java.util.Arrays;
 
-public class Search_in_a_Row_and_Column_wise_Sorted_Array {
+public class SearchinSortedArray {
     public static void main(String[] args) {
         int[] a = search(new int[][]{
                 {10,20,30,40},
@@ -12,12 +12,12 @@ public class Search_in_a_Row_and_Column_wise_Sorted_Array {
         if(a != null)
             Arrays.stream(a).forEach(System.out::println);
     }
-    public static int[] search(int[][] a,int key){ // O(n+m)
-        int n = a.length;
-        int m = a[0].length;
-        int i = 0,j=n-1;
+    public static int[] search(int[][] a,int key){ // O(r+c)
+        int row = a.length;
+        int column = a[0].length;
+        int i = 0,j=row-1;
 
-        while(i >=0 && i < n && j >=0 && j < m){
+        while(i < row && j >=0){
             if(a[i][j] == key)
                 return new int[]{i,j};
             else if(a[i][j] > key)
