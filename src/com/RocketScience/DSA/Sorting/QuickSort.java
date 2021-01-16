@@ -11,25 +11,30 @@ public class QuickSort {
         quickSort(a,0,a.length-1);
     }
 
+    //hoares partition is 3 times faster than lomuto Partition
     private static void quickSort(int[] a,int l,int h){
         if(l >= h) return;
 
         int splitPoint;
-        splitPoint = partition(a, l, h);
-        quickSort(a, l, splitPoint);
+        splitPoint = lomutoPartition(a, l, h);
+        quickSort(a, l, splitPoint-1); // for hoares Partition quickSort(a, l, splitPoint)
         quickSort(a, splitPoint + 1, h);
     }
 
-    /*private static int randomPivot(int[] a,int l,int h){
-        Random r = new Random();
-        int pivot = r.nextInt(h-l) + l;
-        int temp = a[l];
-        a[l] = a[pivot];
-        a[pivot] = temp;
-        return partition(a,l,h);
-    }*/
-    public static int partition(int[] a, int low, int high)
-    {
+    public static int lomutoPartition(int[] a,int low,int high){
+        int pivot = a[high];
+        int i = low-1;
+        for(int j = low;j<high;j++){
+            if(a[j] < pivot){
+                i++;
+                swap(a ,i,j);
+            }
+        }
+        swap(a,i+1,high);
+        return i+1;
+    }
+
+    public static int hoarePartition(int[] a, int low, int high) {
         int pivot = a[low];
         int i = low - 1;
         int j = high + 1;
