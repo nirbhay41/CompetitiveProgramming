@@ -158,7 +158,10 @@ public class Array {
             else if (a.get(i) > b.get(j))
                 j++;
             else {
-                c.add(a.get(i++));
+                if(c.get(c.size-1) != a.get(i)) {
+                    c.add(a.get(i));
+                }
+                i++;
                 j++;
             }
         }
