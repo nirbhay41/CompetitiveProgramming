@@ -18,7 +18,6 @@ public class PairWithSumK {
     private static void UsingHashing(int[] a,int k){ // if array is not sorted
         int max = Arrays.stream(a).max().getAsInt();
         int[] H = new int[max+1];
-        Arrays.fill(H,0 );
         for (int j : a) {
             if (j > k) {
                 H[j]++;
