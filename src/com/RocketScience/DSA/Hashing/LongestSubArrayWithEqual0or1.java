@@ -1,4 +1,4 @@
-package com.RocketScience.DSA.SlidingWindow_and_PrefixSum;
+package com.RocketScience.DSA.Hashing;
 
 import java.util.HashMap;
 
@@ -17,9 +17,7 @@ public class LongestSubArrayWithEqual0or1 {
             sum += (a[i] == 0) ? -1 : 1;
 
             if(map.containsKey(sum)){  // if we get the same sum then we have same no of 0's and 1's
-                int idx = map.get(sum);
-                int len = i - idx;
-                ans = Math.max(ans,len);
+                ans = Math.max(ans,i - map.get(sum));
             }else map.put(sum,i);
         }
         return ans;
