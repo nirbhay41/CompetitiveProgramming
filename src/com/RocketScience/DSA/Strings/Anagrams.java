@@ -2,7 +2,7 @@ package com.RocketScience.DSA.Strings;
 
 public class Anagrams {
     public static void main(String[] args) {
-        String a = "decimal",b = "medical";
+        String a = "b",b = "d";
         System.out.println(isAnagram(a,b));
     }
     private static boolean isAnagram(String a,String b){

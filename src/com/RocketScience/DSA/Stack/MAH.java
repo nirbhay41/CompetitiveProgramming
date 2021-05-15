@@ -1,6 +1,5 @@
 package com.RocketScience.DSA.Stack;
 
-import java.util.Arrays;
 import java.util.Stack;
 
 //Maximum area of histogram
@@ -11,14 +10,13 @@ public class MAH {
     public static int area(int[] hist){
         int[] left = NSL(hist);
         int[] right = NSR(hist);
-        int[] width = new int[hist.length];
-        int[] area = new int[hist.length];
 
-        for(int i = 0;i<width.length;i++){
-            width[i] = right[i] - left[i] - 1;
-            area[i] = hist[i] * width[i];
+        int ans = Integer.MIN_VALUE;
+        for(int i = 0;i<hist.length;i++){
+            ans = Math.max(ans,(right[i]-left[i]-1)*hist[i]);
         }
-        return Arrays.stream(area).max().getAsInt();
+
+        return ans;
     }
     private static int[] NSL(int[] hist){ // We are storing indexes in stack of the elements
         Stack<Integer> stack = new Stack<>();

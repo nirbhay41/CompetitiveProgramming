@@ -2,8 +2,8 @@ package com.RocketScience.DSA.Sorting;
 
 public class KthSmallestUsingLomutoPartition {
     public static void main(String[] args) {
-        int[] a = {6,2,8,4,9,3,5}; // 2 3 4 5 6 8
-        System.out.println(kthSmallest(a, 3));
+        int[] a = {3,2,1,5,6,4}; // 2 3 4 5 6 8
+        System.out.println(kthSmallest(a, 2));
     }
 
     //Time: O(n)
@@ -14,9 +14,9 @@ public class KthSmallestUsingLomutoPartition {
         while(low <= high){
             int pivot = partition(a,low,high);
 
-            if(pivot == k-1) // for largest n-k
+            if(pivot == n-k) // for largest n-k
                 return a[pivot];
-            else if(pivot > k-1)
+            else if(pivot > n-k)
                 high = pivot-1;
             else low = pivot+1;
         }

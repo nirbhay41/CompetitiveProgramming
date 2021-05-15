@@ -4,41 +4,39 @@ import java.util.Stack;
 
 public class InfixToPostfix {
     public static void main(String[] args) {
-        System.out.println(infixToPostFix("a+b*c/d"));
+        System.out.println(postfix("10+2*3/4"));
     }
 
-    static String infixToPostFix(final String expression){
-
-        StringBuilder result = new StringBuilder();
+    public static String postfix(String exp){
         Stack<Character> stack = new Stack<>();
-        for (char c : expression.toCharArray()){
-            //check if char is operator
-            if(precedence(c)>0){
-                while(!stack.isEmpty() && precedence(stack.peek())>=precedence(c)){
-                    result.append(stack.pop());
-                }
+        StringBuilder res = new StringBuilder();
+
+        for(int i = 0;i<exp.length();i++){
+            char c = exp.charAt(i);
+
+            if(Character.isLetterOrDigit(c))
+                res.append(c);
+            else if(c == '(')
                 stack.push(c);
-            }else if(c==')'){
-                char x = stack.pop();
-                while(x!='('){
-                    result.append(x);
-                    x = stack.pop();
-                }
-            }else if(c=='('){
-                stack.push(c);
+            else if(c == ')'){
+                while (!stack.isEmpty() && stack.peek() != '(')
+                    res.append(stack.pop());
+                stack.pop();
             }else{
-                //character is neither operator nor (
-                result.append(c);
+                while (!stack.isEmpty() && preced(c) <= preced(stack.peek()))
+                    res.append(stack.pop());
+                stack.push(c);
             }
         }
-        while (!stack.isEmpty())
-            result.append(stack.pop());
 
-        return result.toString();
+        while (!stack.isEmpty()){
+            res.append(stack.pop());
+        }
+        return res.toString();
     }
 
-    static int precedence(char c){
-        return switch (c) {
+    public static int preced(char op){
+        return switch (op) {
             case '+', '-' -> 1;
             case '*', '/' -> 2;
             case '^' -> 3;

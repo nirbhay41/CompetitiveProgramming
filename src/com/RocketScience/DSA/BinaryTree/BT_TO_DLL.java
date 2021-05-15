@@ -9,14 +9,16 @@ public class BT_TO_DLL {
         root.left.left = new Node(1);
         root.left.right = new Node(3);
 
-        Node list = convert(root);
+        Node list = convert2(root);
 
         while (list != null){
             System.out.println(list.data);
             list = list.right;
         }
     }
-    public static Node convert(Node root){
+    
+    //Method - I:
+    public static Node convert1(Node root){
         if(root == null)
             return null;
         prev = null;
@@ -44,5 +46,23 @@ public class BT_TO_DLL {
         root.left = prev;
         prev = root;
         fixPrevPtr(root.right);
+    }
+    
+    //Method - II:
+    public static Node convert2(Node root){
+        if(root == null)
+            return null;
+
+        Node head = convert2(root.left);
+        if(prev == null)
+            head = root;
+        else{
+            root.left = prev;
+            prev.right = root;
+        }
+
+        prev = root;
+        convert2(root.right);
+        return head;
     }
 }

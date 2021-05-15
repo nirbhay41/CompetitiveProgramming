@@ -2,7 +2,8 @@ package com.RocketScience.DSA.Stack;
 
 public class MaxAreaOfRectangleOfBinaryMatrix {
     public static void main(String[] args) {
-        System.out.println(max_area(new int[][]{{0}}));
+        int[][] mat = {{0,1,1,0},{1,1,1,1},{1,1,1,1},{1,1,0,0}};
+        System.out.println(max_area(mat));
     }
     private static int max_area(int[][] matrix){
         if(matrix == null || matrix.length == 0){

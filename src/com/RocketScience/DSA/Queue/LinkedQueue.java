@@ -1,6 +1,13 @@
 package com.RocketScience.DSA.Queue;
 
-import com.RocketScience.DSA.LinkedList.Node;
+class Node{
+    int data;
+    Node next;
+
+    public Node(int data) {
+        this.data = data;
+    }
+}
 
 public class LinkedQueue {
     Node front,rear;

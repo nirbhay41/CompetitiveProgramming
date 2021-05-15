@@ -22,7 +22,7 @@ public class MergeSortList {
 
         return merge(left,right);
     }
-    public static Node merge(Node a,Node b){
+    public static Node merge(Node a, Node b){
         if(a == null)
             return b;
         if(b == null)
@@ -35,7 +35,7 @@ public class MergeSortList {
             res.next = merge(a.next,b);
         }else{
             res = b;
-            res.next = merge(a,b.next);
+            res.next = merge(a,b.next); 
         }
         return res;
     }

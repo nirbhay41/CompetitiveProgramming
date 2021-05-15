@@ -11,12 +11,12 @@ class CircularNode{
 public class CircularLinkedList {
     public static CircularNode Head;
     public static void main(String[] args) {
-        create(new int[]{1,2,34,5,63});
-        //display(Head);
-        insert(5,100);
+        insert(0,2);
+        insert(1,4);
+        insert(2, 5);
         display(Head);
-//        delete(Head,1);
-//        display(Head);
+        insert(0,1);
+        display(Head);
     }
     public static void create(int[] a){
         CircularNode t,last;
@@ -57,13 +57,22 @@ public class CircularLinkedList {
                 Head = temp;
                 Head.next = Head;
             }else{
-                ptr = Head;
+                //This is Naive Solution in O(N) time
+               /* ptr = Head;
                 while (ptr.next != Head){
                     ptr = ptr.next;
                 }
                 ptr.next = temp;
                 temp.next = Head;
                 Head = temp;
+                */
+
+                //This is efficient solution in O(1) time
+                temp.next = Head.next;
+                Head.next = temp;
+                int t = temp.data;
+                temp.data = Head.data;
+                Head.data = t;
             }
         }else{
             ptr = Head;

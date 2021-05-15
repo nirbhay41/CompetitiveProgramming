@@ -5,7 +5,7 @@ import java.util.Stack;
 
 public class StockSpanProblem {
     public static void main(String[] args) {
-        Arrays.stream(stock(new int[]{100,80,60,70,60,75,85})).forEach(System.out::println);
+        Arrays.stream(stock(new int[]{100,80,60,70,60,75,85})).forEach(System.out::print);
     }
     private static int[] stock(int[] price){ // We have to find the index of nearest greatest element to left
         int[] span = new int[price.length];

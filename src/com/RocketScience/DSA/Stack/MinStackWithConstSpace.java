@@ -27,7 +27,6 @@ public class MinStackWithConstSpace {
                 Min = x;
             }
         }
-        Stack<Long> a = new Stack<>();
     }
     private static int pop(){
         if(stack.isEmpty())

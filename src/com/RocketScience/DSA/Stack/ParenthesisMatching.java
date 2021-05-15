@@ -5,6 +5,7 @@ import java.util.Stack;
 public class ParenthesisMatching {
     public static void main(String[] args) {
         //Arrays.stream(shuffle(new int[]{2,5,1,3,4,7}, 3)).forEach(System.out::println);
+        System.out.println(isbalanced("[({[([{}])]})}"));
     }
     public static boolean isBalanced(String exp){ // for normal parenthesis
         Stack<Character> stack = new Stack<>();

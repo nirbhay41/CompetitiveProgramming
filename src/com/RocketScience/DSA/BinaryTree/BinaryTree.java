@@ -136,6 +136,7 @@ public class BinaryTree {
             System.out.print(root.data+" ");
             if(root.left != null)
                 q.add(root.left);
+
             if(root.right != null)
                 q.add(root.right);
         }

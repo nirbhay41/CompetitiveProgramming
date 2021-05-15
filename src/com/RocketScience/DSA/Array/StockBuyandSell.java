@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class StockBuyandSell {
     public static void main(String[] args) {
-        stockBuySell(new int[]{100,180,260,310,40,535,695}, 7).forEach(System.out::println);
+        System.out.println(Profit(new int[]{7, 1, 5, 3, 6, 4}));
     }
 
     //Time Complexity: O(N)
@@ -42,5 +42,21 @@ public class StockBuyandSell {
         }
 
         return list;
+    }
+
+    //You want to maximize your profit by choosing a single day to buy one stock and choosing
+    //a different day in the future to sell that stock.
+    public int maxProfit(int[] prices) {
+        int minPrice = Integer.MAX_VALUE;
+        int max_profit = 0;
+
+        for(int x : prices){
+            if(x < minPrice){
+                minPrice = x;
+            }else if(x - minPrice > max_profit)
+                max_profit = x - minPrice;
+        }
+
+        return max_profit;
     }
 }

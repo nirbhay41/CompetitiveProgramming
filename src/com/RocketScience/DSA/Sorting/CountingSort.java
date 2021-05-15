@@ -31,13 +31,13 @@ public class CountingSort {
     public static void countSort(int[] a, int n, int k){
         int[] count=new int[k];
         for(int i=0;i<n;i++)
-            count[a[i]]++;
+            count[a[i]]++; // count the freq
 
         for(int i=1;i<k;i++)
-            count[i]=count[i-1]+count[i];
+            count[i]=count[i-1]+count[i]; // count[i] tells how many elements are smaller or equal than i
 
         int[] output=new int[n];
-        for(int i=n-1;i>=0;i--){
+        for(int i=n-1;i>=0;i--){ // we are running the loop from n-1 to 0 because of stability
             output[count[a[i]]-1]=a[i];
             count[a[i]]--;
         }

@@ -1,5 +1,12 @@
 package com.RocketScience.DSA.LinkedList;
 
+class Node{
+    int data;
+    Node next;
+    public Node(int val) {
+        data = val;
+    }
+}
 public class addOne {
     public static void main(String[] args) {
         Node head = new Node(9);
